@@ -481,7 +481,7 @@ function getLog(){try{return JSON.parse(localStorage.getItem(LS_LOG))||{done:0,r
 function saveLog(l){localStorage.setItem(LS_LOG,JSON.stringify(l));}
 function toast(msg){var t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show');},1800);}
 function qid(q){return BANK.indexOf(q);}
-function route(r){S.route=r;document.querySelectorAll('.route').forEach(function(el){el.classList.remove('active');});$('#'+r).classList.add('active');if(r==='home')renderHome();if(r==='wrongbook')renderWrongbook();}
+function route(r){S.route=r;document.querySelectorAll('.route').forEach(function(el){el.classList.remove('active');});$(r).classList.add('active');if(r==='home')renderHome();if(r==='wrongbook')renderWrongbook();}
 
 /* 首页 */
 function renderHome(){
