@@ -522,8 +522,9 @@ function renderQ(){
   $('qimg').src='images/'+q.img;
   $('pfill').style.width=(S.idx/S.list.length*100)+'%';
   $('ptxt').textContent=(S.idx+1)+' / '+S.list.length;
-  var order=a.order||shuffle([0,1,2,3]);if(!a.order){a.order=order;S.answers[S.idx]=a;}
-  var keys=['A','B','C','D'];
+  var nopt=(q.opts_jp&&q.opts_jp.length)||3;
+  var order=a.order||shuffle(Array.from({length:nopt},function(_,i){return i;}));if(!a.order){a.order=order;S.answers[S.idx]=a;}
+  var keys=['A','B','C','D'].slice(0,nopt);
   var opts=$('opts');opts.innerHTML='';
   order.forEach(function(oi,pos){
     var d=document.createElement('button');d.className='opt';
